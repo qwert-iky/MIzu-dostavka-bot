@@ -28,9 +28,9 @@ app.add_middleware(
 )
 
 
-@app.get("/api/health")
+@app.api_route("/api/health", methods=["GET", "HEAD"])
 async def health_check() -> Dict[str, str]:
-    """Health check endpoint to verify web server status."""
+    """Health check endpoint to verify web server status (supports GET and HEAD)."""
     return {"status": "ok", "service": "suv-bot-routing"}
 
 
